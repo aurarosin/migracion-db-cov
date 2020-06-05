@@ -1,5 +1,8 @@
 #include <iostream>
-#include <pqxx/pqxx> 
+#include <pqxx/pqxx>
+
+#include "file_read.h"
+#include "postgres_con.h"
 
 using namespace std;
 using namespace pqxx;
