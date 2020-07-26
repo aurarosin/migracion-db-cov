@@ -22,17 +22,16 @@ int load_from_file(char *filename) {
   // Lectura de lineas en el archivo.
   for (lines = 0; fscanf(file, "%[^\n]\n", line) != EOF; lines++) {
     //
-    printf("Line %d: %s \n", lines, line);
+   // printf("Line %d: %s \n", lines, line);
   }
 
   fclose(file);
-  printf("End-1\n");
+  // printf("End-1\n");
 
   return lines;
 }
 
 void load_data(char *dirname, char *filename_out) {
-  
   DIR *d = opendir(dirname);
   int files_count = 0, total_reg = 0;
 
@@ -54,14 +53,20 @@ void load_data(char *dirname, char *filename_out) {
         // printf("Filename :%s \n",filename_out);
       }
     }
-    
+    printf("Total de registros %d \n",total_reg-1);
     closedir(d);
   } else {
     printf("No está el directorio");  // No está el directorio
   }
+}
 
-  // void move_file(char *filename) {
-
-
-  // }
+void move_file(char *filename, char *dst) {
+    // mv test.txt /home/solvetic/Escritorio
+  char command[500] = "mv ";
+  /* Create command */
+  strcat(command, filename);
+  strcat(command, " ");
+  strcat(command, dst);
+  printf("Command :%s \n", command);
+  system(command);
 }
