@@ -264,6 +264,7 @@ static char query_insert_datos_generales[] =
     "when PAIS_NACIONALIDAD='Zimbabwe' then CAST(83 AS SMALLINT) "
     "when PAIS_NACIONALIDAD='Zona Neutral' then CAST(84 AS SMALLINT) "
     "when PAIS_NACIONALIDAD='99' then CAST(99 AS SMALLINT) "
+    "when PAIS_NACIONALIDAD='México' then CAST(51 AS SMALLINT) "
     "end, "
     "case "
     "when PAIS_origen='Alemania' then 1 "
@@ -364,8 +365,8 @@ static char query_insert_datos_generales[] =
     "when PAIS_origen='Venezuela' then 82 "
     "when PAIS_origen='Zimbabwe' then 83 "
     "when PAIS_origen='Zona Neutral' then 84 "
-    "when PAIS_origen='99' then 99  "
-    "when PAIS_origen='97' then 97  "
+    "when PAIS_origen = '99' then 99  "
+    "when PAIS_origen = '97' then 97  "
     "end "
     " FROM snie.temp1 a "
     " inner join snie.pacientes p on a.ID_REGISTRO=p.id_registro";
