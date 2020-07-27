@@ -1,11 +1,11 @@
-static char sql_truncate_pacientes_cascade[] =
+static char query_truncate_pacientes_cascade[] =
     "TRUNCATE TABLE snie.pacientes RESTART IDENTITY CASCADE;";
 
-static char sql_drop_temp[] = "DROP TABLE snie.temp1;";
+static char query_drop_temp[] = "DROP TABLE snie.temp1;";
 
-static char sql_commit[] = "COMMIT;";
+static char query_commit[] = "COMMIT;";
 
-static char sql_create_table_temp[] =
+static char query_create_table_temp[] =
     "CREATE TABLE snie.temp1("
     "FECHA_ACTUALIZACION character varying ,"
     "ID_REGISTRO character varying ,"
@@ -43,7 +43,7 @@ static char sql_create_table_temp[] =
     "PAIS_ORIGEN character varying,"
     "UCI character varying );";
 
-static char sql_copy_from_file[] =
+static char query_copy_from_file[] =
     "COPY snie.temp1(FECHA_ACTUALIZACION, ID_REGISTRO, ORIGEN, SECTOR, "
     "ENTIDAD_UM, SEXO,"
     "ENTIDAD_NAC, ENTIDAD_RES, MUNICIPIO_RES, TIPO_PACIENTE, FECHA_INGRESO,"
@@ -54,12 +54,12 @@ static char sql_copy_from_file[] =
     "MIGRANTE, PAIS_NACIONALIDAD, PAIS_ORIGEN, UCI)"
     "FROM '";
 
-static char sql_create_sequence[] =
+static char query_create_sequence[] =
     "CREATE SEQUENCE snie.pacientes_sequence "
     "start 1 "
     "increment 1;";
 
-static char sql_insert_pacientes[] =
+static char query_insert_pacientes[] =
     "INSERT INTO snie.pacientes"
     "(id_registro"
     ",clave_origen"
@@ -82,7 +82,7 @@ static char sql_insert_pacientes[] =
     ",CAST(TIPO_PACIENTE AS SMALLINT) "
     "FROM snie.temp1";
 
-static char sql_insert_complicaciones[] =
+static char query_insert_complicaciones[] =
     "INSERT INTO snie.complicaciones"
     "(id_paciente"
     ",intubado"
@@ -104,7 +104,7 @@ static char sql_insert_complicaciones[] =
     " FROM snie.temp1 a"
     " inner join snie.pacientes p on a.ID_REGISTRO=p.id_registro ;";
 
-static char sql_insert_padecimientos[] =
+static char query_insert_padecimientos[] =
     "INSERT INTO snie.padecimientos "
     "(id_paciente "
     ",diabetes "
@@ -132,7 +132,7 @@ static char sql_insert_padecimientos[] =
     " FROM snie.temp1 a"
     " inner join snie.pacientes p on a.ID_REGISTRO=p.id_registro;";
 
-static char sql_insert_datos_generales[] =
+static char query_insert_datos_generales[] =
     "INSERT INTO snie.datos_generales"
     "(id_paciente"
     ",edad"

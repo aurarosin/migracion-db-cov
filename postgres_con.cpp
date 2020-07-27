@@ -120,3 +120,32 @@ void postgres_execute_query(connection *c, char *sql) {
     // return 1;
   }
 }
+
+//Función de los hilos
+void *hiloInsert(void *paramIn){
+  tparam param1;
+   param1 = *(tparam *) paramIn;
+ 
+  connection *c; 
+  char *sql;
+
+  c = param1.c;
+  sql = param1.query_param;
+  //printf("%s %d\n",paramIn->c, paramIn->query_param);
+
+   try {
+    /* Create a transactional object. */
+    work W(*c);
+
+    /* Execute SQL query */
+    W.exec(sql);
+    W.commit();
+    printf("Execute query successfully\n");
+
+  } catch (const std::exception &e) {
+    fprintf(stderr, "Error al cargar datos: %s", e.what());
+    // return 1;
+  }
+
+
+}
