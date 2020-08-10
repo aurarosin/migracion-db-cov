@@ -12,15 +12,6 @@ using namespace pqxx;
 
 const char* dbname = "snie";
 
-// char* ruta_csv =
-//     "/home/ross/Documentos/CINVESTAV/cuatri3/ComputoCientifico/covid/"
-//     "migracion-db-cov/datos_abiertos_covid19/nuevo";
-// char* dst =
-//     "/home/ross/Documentos/CINVESTAV/cuatri3/ComputoCientifico/covid/"
-//     "migracion-db-cov/datos_abiertos_covid19/anteriores";
-
-//Falta incluir pruebas de tiempo de ejecución con hilos y sin hilos
-
 int main(int argc, char* argv[]) {
 
   const char *postgres_host, *postgres_user, *postgres_pass;
